@@ -1,343 +1,134 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r'''<!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zásady ochrany osobních údajů</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(180deg, #8fd3ff 0%, #dff7ff 100%);
-      color: #2d3748;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .background-bubbles {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .bubble {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.25);
-      animation: float 18s infinite linear;
-    }
-
-    .bubble:nth-child(1) {
-      width: 120px;
-      height: 120px;
-      left: 5%;
-      top: 10%;
-    }
-
-    .bubble:nth-child(2) {
-      width: 80px;
-      height: 80px;
-      left: 75%;
-      top: 20%;
-      animation-duration: 14s;
-    }
-
-    .bubble:nth-child(3) {
-      width: 160px;
-      height: 160px;
-      left: 60%;
-      top: 65%;
-      animation-duration: 22s;
-    }
-
-    .bubble:nth-child(4) {
-      width: 60px;
-      height: 60px;
-      left: 20%;
-      top: 70%;
-      animation-duration: 12s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(180deg);
-      }
-      100% {
-        transform: translateY(0px) rotate(360deg);
-      }
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 50px auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 32px;
-      padding: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .hero-icon {
-      font-size: 72px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 42px;
-      font-weight: 900;
-      color: #1f2937;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: #4b5563;
-    }
-
-    .section {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 24px;
-      border: 3px solid #d6f0ff;
-      transition: transform 0.2s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-4px);
-    }
-
-    h2 {
-      font-size: 28px;
-      margin-bottom: 14px;
-      color: #0f172a;
-    }
-
-    p {
-      margin-bottom: 14px;
-      font-size: 17px;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    li {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .contact-box {
-      background: linear-gradient(135deg, #6ee7b7, #34d399);
-      color: white;
-      border-radius: 24px;
-      padding: 28px;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .contact-box h2 {
-      color: white;
-    }
-
-    .email {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 22px;
-      font-weight: 800;
-      background: rgba(255,255,255,0.2);
-      padding: 12px 20px;
-      border-radius: 16px;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 35px;
-      color: #475569;
-      font-size: 15px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        margin: 20px auto;
-        padding: 14px;
-      }
-
-      .card {
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .hero-icon {
-        font-size: 58px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - JellyDeer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(180deg,#8fd3ff,#dff7ff);color:#2d3748;line-height:1.8}
+.container{max-width:1100px;margin:40px auto;padding:20px}
+.card{background:rgba(255,255,255,.95);border-radius:32px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.hero{text-align:center;margin-bottom:30px}
+h1{font-size:44px}
+.subtitle{color:#555;margin-top:10px}
+.section{background:#fff;border:2px solid #d6f0ff;border-radius:24px;padding:28px;margin-bottom:22px}
+h2{margin-bottom:14px;color:#0f172a}
+p{margin-bottom:12px}
+ul{padding-left:22px}
+li{margin-bottom:8px}
+.contact{background:linear-gradient(135deg,#6ee7b7,#34d399);color:white;border-radius:24px;padding:28px}
+.email{font-size:22px;font-weight:900}
+</style>
 </head>
 <body>
+<div class="container"><div class="card">
 
-  <div class="background-bubbles">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-  </div>
+<div class="hero">
+<h1>Zásady ochrany osobních údajů</h1>
+<div class="subtitle">Poslední aktualizace: 24. května 2026</div>
+</div>
 
-  <div class="container">
-    <div class="card">
+<div class="section"><h2>1. Úvod</h2>
+<p>Tyto Zásady ochrany osobních údajů upravují způsob, jakým jsou zpracovávány informace související s používáním mobilních aplikací a her vydávaných pod značkou JellyDeer. Dokument je vypracován v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 („GDPR“) a dalšími použitelnými právními předpisy.</p>
+<p>Naším cílem je minimalizovat rozsah zpracovávaných údajů a chránit soukromí všech uživatelů, zejména dětí.</p></div>
 
-      <div class="hero">
-        <div class="hero-icon">🧸🔒</div>
-        <h1>Zásady ochrany osobních údajů</h1>
-        <div class="subtitle">
-          Poslední aktualizace: 8. května 2026
-        </div>
-      </div>
+<div class="section"><h2>2. Správce údajů</h2>
+<p>Správcem údajů je provozovatel aplikace JellyDeer. V případě dotazů týkajících se ochrany soukromí nebo výkonu práv subjektu údajů nás lze kontaktovat prostřednictvím kontaktního e‑mailu uvedeného na konci tohoto dokumentu.</p></div>
 
-      <div class="section">
-        <h2>📘 Obecné informace</h2>
-        <p>
-          Tato hra je určena pro děti a rodiny. Ochrana soukromí uživatelů je pro nás důležitá.
-        </p>
-        <p>
-          Používáním této aplikace souhlasíte s těmito zásadami ochrany osobních údajů.
-        </p>
-      </div>
+<div class="section"><h2>3. Rozsah zpracovávaných údajů</h2>
+<p>Aplikace nevyžaduje vytvoření uživatelského účtu a vědomě neshromažďuje osobní údaje umožňující přímou identifikaci osoby.</p>
+<p>V souvislosti s provozem aplikace mohou být zpracovávány technické údaje nezbytné pro distribuci aplikace prostřednictvím Google Play, ověření oprávněnosti nákupů a zajištění funkčnosti aplikace.</p>
+<ul>
+<li>typ zařízení,</li>
+<li>verze operačního systému,</li>
+<li>jazyk zařízení,</li>
+<li>technické identifikátory poskytované platformou Google Play,</li>
+<li>informace o zakoupeném digitálním obsahu.</li>
+</ul></div>
 
-      <div class="section">
-        <h2>🛡️ Jaká data aplikace sbírá</h2>
-        <p>Tato aplikace:</p>
+<div class="section"><h2>4. Údaje, které neshromažďujeme</h2>
+<ul>
+<li>jméno a příjmení,</li>
+<li>poštovní adresu,</li>
+<li>telefonní číslo,</li>
+<li>e-mailovou adresu uživatele aplikace,</li>
+<li>polohu zařízení,</li>
+<li>biometrické údaje,</li>
+<li>obsah fotografií, videí nebo kontaktů.</li>
+</ul></div>
 
-        <ul>
-          <li>nevyžaduje registraci účtu,</li>
-          <li>nesbírá osobní údaje,</li>
-          <li>neukládá jména, adresy ani kontaktní údaje,</li>
-          <li>nesleduje polohu uživatele,</li>
-          <li>neobsahuje reklamy třetích stran,</li>
-          <li>nepoužívá analytické nástroje pro sledování uživatelů.</li>
-        </ul>
+<div class="section"><h2>5. Právní základy dle GDPR</h2>
+<p>Pokud dochází ke zpracování údajů, děje se tak zejména na základě čl. 6 odst. 1 písm. b) GDPR (plnění smlouvy), čl. 6 odst. 1 písm. c) GDPR (splnění právní povinnosti) a čl. 6 odst. 1 písm. f) GDPR (oprávněný zájem na bezpečném provozu aplikace).</p></div>
 
-        <p>
-          Aplikace může lokálně ukládat jednoduchá herní data přímo v zařízení uživatele, například:
-        </p>
+<div class="section"><h2>6. Lokálně ukládaná data</h2>
+<p>Aplikace ukládá herní postup, odemčený obsah, nastavení a další provozní údaje přímo do zařízení uživatele. Tato data standardně neopouštějí zařízení a nejsou přenášena provozovateli.</p>
+<p>Odinstalováním aplikace nebo vymazáním dat aplikace prostřednictvím nastavení operačního systému mohou být tato data odstraněna.</p></div>
 
-        <ul>
-          <li>odemčená témata,</li>
-          <li>nastavení hry,</li>
-          <li>průběh hry.</li>
-        </ul>
+<div class="section"><h2>7. Google Play Services</h2>
+<p>Aplikace je distribuována prostřednictvím platformy Google Play. Google může v rámci poskytování svých služeb zpracovávat technické údaje nezbytné pro distribuci aplikace, správu licencí, aktualizace, bezpečnostní mechanismy a další funkce související s provozem obchodu Google Play.</p>
+<p>Rozsah a způsob zpracování údajů společností Google se řídí dokumentací a zásadami společnosti Google.</p></div>
 
-        <p>
-          Tato data neopouštějí zařízení uživatele.
-        </p>
-      </div>
+<div class="section"><h2>8. Google Play Billing</h2>
+<p>Aplikace může obsahovat dobrovolné jednorázové nákupy digitálního obsahu. Veškeré platby jsou zpracovávány společností Google prostřednictvím služby Google Play Billing.</p>
+<p>Provozovatel aplikace nemá přístup k číslům platebních karet, bankovním údajům ani jiným citlivým platebním informacím.</p></div>
 
-      <div class="section">
-        <h2>💳 Nákupy v aplikaci</h2>
-        <p>
-          Aplikace obsahuje volitelné jednorázové nákupy prostřednictvím služby Google Play Billing.
-        </p>
+<div class="section"><h2>9. Reklama a analytika</h2>
+<p>Aplikace v současné době nepoužívá reklamní sítě třetích stran, reklamní SDK, analytické nástroje, Firebase Analytics ani obdobné systémy sledování uživatelů.</p>
+<p>Aplikace není navržena za účelem profilování uživatelů ani vytváření marketingových profilů.</p></div>
 
-        <p>
-          Veškeré platby zpracovává společnost Google prostřednictvím platformy Google Play.
-        </p>
+<div class="section"><h2>10. Cookies a identifikátory zařízení</h2>
+<p>Mobilní aplikace běžně nepoužívají cookies stejným způsobem jako webové stránky. Platforma nebo operační systém však mohou využívat technické identifikátory zařízení, které jsou nezbytné pro poskytování služeb, nákupů a zabezpečení.</p></div>
 
-        <p>
-          Vývojář aplikace nemá přístup k platebním údajům uživatelů, jako jsou čísla karet nebo bankovní informace.
-        </p>
+<div class="section"><h2>11. Ochrana dětí (GDPR-K a COPPA)</h2>
+<p>Aplikace je určena dětem a rodinám. V souladu s GDPR a principy zákona COPPA vědomě neshromažďujeme osobní údaje dětí. Neumožňujeme registraci účtů, veřejné profily, chatovací funkce ani sdílení osobních údajů mezi uživateli.</p>
+<p>Pokud se rodič nebo zákonný zástupce domnívá, že došlo k neúmyslnému zpracování osobních údajů dítěte, může nás kontaktovat a požádat o prověření situace.</p></div>
 
-        <p>
-          Před provedením nákupu může být zobrazen rodičovský ověřovací krok.
-        </p>
-      </div>
+<div class="section"><h2>12. Mezinárodní přenosy údajů</h2>
+<p>Některé služby poskytované společností Google mohou zahrnovat zpracování údajů mimo Evropský hospodářský prostor. Takové zpracování se řídí právními mechanismy používanými poskytovatelem služby.</p></div>
 
-      <div class="section">
-        <h2>👨‍👩‍👧 Děti a ochrana soukromí</h2>
-        <p>
-          Aplikace je navržena s ohledem na děti a rodiny.
-        </p>
+<div class="section"><h2>13. Doba uchování údajů</h2>
+<p>Údaje jsou uchovávány pouze po dobu nezbytnou pro poskytování služeb, splnění zákonných povinností nebo ochranu oprávněných zájmů. Údaje ukládané lokálně zůstávají pod kontrolou uživatele.</p></div>
 
-        <p>
-          Aplikace vědomě nesbírá osobní údaje dětí.
-        </p>
+<div class="section"><h2>14. Práva subjektů údajů</h2>
+<ul>
+<li>právo na přístup k údajům,</li>
+<li>právo na opravu údajů,</li>
+<li>právo na výmaz,</li>
+<li>právo na omezení zpracování,</li>
+<li>právo vznést námitku,</li>
+<li>právo podat stížnost u Úřadu pro ochranu osobních údajů.</li>
+</ul></div>
 
-        <p>
-          Pokud se domníváte, že aplikace omylem získala osobní údaje dítěte, kontaktujte nás a situaci vyřešíme.
-        </p>
-      </div>
+<div class="section"><h2>15. Postup při žádosti o výmaz údajů</h2>
+<p>Žádosti lze zaslat na kontaktní e‑mail. Pokud jsou zpracovávány údaje, které lze identifikovat a odstranit, bude žádost vyřízena v přiměřené lhůtě v souladu s GDPR.</p></div>
 
-      <div class="section">
-        <h2>🌐 Externí služby</h2>
-        <p>Aplikace může využívat následující služby:</p>
+<div class="section"><h2>16. Bezpečnost</h2>
+<p>Používáme přiměřená technická a organizační opatření k ochraně informací před neoprávněným přístupem, ztrátou, poškozením nebo zneužitím.</p></div>
 
-        <ul>
-          <li>Google Play Services</li>
-          <li>Google Play Billing</li>
-        </ul>
+<div class="section"><h2>17. Omezení odpovědnosti</h2>
+<p>Provozovatel nenese odpovědnost za přerušení služeb způsobené třetími stranami, výpadky internetového připojení, poruchy zařízení uživatele ani okolnosti mimo jeho přiměřenou kontrolu.</p>
+<p>Aplikace je poskytována „tak jak je“ v rozsahu povoleném příslušnými právními předpisy.</p></div>
 
-        <p>
-          Tyto služby mohou zpracovávat technické údaje nezbytné pro fungování aplikace a nákupů.
-        </p>
-      </div>
+<div class="section"><h2>18. Rozhodné právo a jurisdikce</h2>
+<p>Tyto zásady se řídí právním řádem České republiky. Veškeré spory vzniklé v souvislosti s používáním aplikace se budou řešit v souladu s příslušnými právními předpisy České republiky a Evropské unie.</p></div>
 
-      <div class="section">
-        <h2>🔄 Změny těchto zásad</h2>
-        <p>
-          Tyto zásady ochrany osobních údajů mohou být čas od času aktualizovány.
-        </p>
+<div class="section"><h2>19. Změny zásad</h2>
+<p>Vyhrazujeme si právo tyto zásady kdykoliv aktualizovat. Aktualizovaná verze bude zveřejněna na této stránce s uvedením data poslední aktualizace.</p></div>
 
-        <p>
-          Doporučujeme pravidelně kontrolovat tuto stránku.
-        </p>
-      </div>
+<div class="contact">
+<h2>Kontakt</h2>
+<p>V případě dotazů týkajících se ochrany soukromí nebo výkonu práv subjektu údajů nás kontaktujte:</p>
+<div class="email">jellydeer@seznam.cz</div>
+</div>
 
-      <div class="contact-box">
-        <h2>📧 Kontakt</h2>
-        <p>
-          V případě dotazů nás můžete kontaktovat:
-        </p>
-
-        <div class="email">
-          jellydeer@seznam.cz
-        </div>
-      </div>
-
-      <div class="footer">
-        
-      </div>
-
-    </div>
-  </div>
-
+</div></div>
 </body>
-</html>
+</html>'''
+
+path="/mnt/data/JellyDeer_Privacy_Policy_Enterprise.html"
+Path(path).write_text(html, encoding="utf-8")
+print(path)
