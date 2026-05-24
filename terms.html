@@ -1,302 +1,141 @@
-<!DOCTYPE html>
+
+
+html = r'''<!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Podmínky používání</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: linear-gradient(180deg, #ffd89b 0%, #fff5d6 100%);
-      color: #2d3748;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    .background-shapes {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .shape {
-      position: absolute;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.2);
-      animation: float 20s infinite ease-in-out;
-    }
-
-    .shape:nth-child(1) {
-      width: 140px;
-      height: 140px;
-      left: 8%;
-      top: 10%;
-    }
-
-    .shape:nth-child(2) {
-      width: 90px;
-      height: 90px;
-      left: 70%;
-      top: 20%;
-      animation-duration: 14s;
-    }
-
-    .shape:nth-child(3) {
-      width: 180px;
-      height: 180px;
-      left: 55%;
-      top: 65%;
-      animation-duration: 24s;
-    }
-
-    .shape:nth-child(4) {
-      width: 70px;
-      height: 70px;
-      left: 18%;
-      top: 72%;
-      animation-duration: 12s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-18px) rotate(8deg);
-      }
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-    }
-
-    .container {
-      max-width: 920px;
-      margin: 50px auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.93);
-      border-radius: 32px;
-      padding: 42px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .hero-icon {
-      font-size: 72px;
-      margin-bottom: 15px;
-    }
-
-    h1 {
-      font-size: 42px;
-      font-weight: 900;
-      color: #1f2937;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: #4b5563;
-    }
-
-    .section {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 24px;
-      border: 3px solid #ffe7b3;
-      transition: transform 0.2s ease;
-    }
-
-    .section:hover {
-      transform: translateY(-4px);
-    }
-
-    h2 {
-      font-size: 28px;
-      margin-bottom: 14px;
-      color: #0f172a;
-    }
-
-    p {
-      margin-bottom: 14px;
-      font-size: 17px;
-    }
-
-    ul {
-      padding-left: 22px;
-      margin-top: 10px;
-    }
-
-    li {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .notice {
-      background: linear-gradient(135deg, #fb923c, #f59e0b);
-      color: white;
-      border-radius: 24px;
-      padding: 28px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    .notice h2 {
-      color: white;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 35px;
-      color: #475569;
-      font-size: 15px;
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        margin: 20px auto;
-        padding: 14px;
-      }
-
-      .card {
-        padding: 24px;
-        border-radius: 24px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      h2 {
-        font-size: 24px;
-      }
-
-      .hero-icon {
-        font-size: 58px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podmínky používání - JellyDeer</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(180deg,#8fd3ff,#dff7ff);color:#2d3748;line-height:1.8}
+.container{max-width:1100px;margin:40px auto;padding:20px}
+.card{background:rgba(255,255,255,.95);border-radius:32px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.hero{text-align:center;margin-bottom:30px}
+h1{font-size:44px}
+.subtitle{color:#555;margin-top:10px}
+.section{background:#fff;border:2px solid #d6f0ff;border-radius:24px;padding:28px;margin-bottom:22px}
+h2{margin-bottom:14px;color:#0f172a}
+p{margin-bottom:12px}
+ul{padding-left:22px}
+li{margin-bottom:8px}
+.contact{background:linear-gradient(135deg,#6ee7b7,#34d399);color:white;border-radius:24px;padding:28px}
+.email{font-size:22px;font-weight:900}
+</style>
 </head>
 <body>
+<div class="container"><div class="card">
 
-  <div class="background-shapes">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
+<div class="hero">
+<h1>Podmínky používání</h1>
+<div class="subtitle">Poslední aktualizace: 24. května 2026</div>
+</div>
 
-  <div class="container">
-    <div class="card">
+<div class="section">
+<h2>1. Úvod</h2>
+<p>Tyto Podmínky používání upravují právní vztah mezi provozovatelem aplikací JellyDeer a uživateli těchto aplikací. Stažením, instalací nebo používáním aplikace vyjadřujete souhlas s těmito podmínkami.</p>
+</div>
 
-      <div class="hero">
-        <div class="hero-icon">📜🎮</div>
-        <h1>Podmínky používání</h1>
-        <div class="subtitle">
-          Poslední aktualizace: 8. května 2026
-        </div>
-      </div>
+<div class="section">
+<h2>2. Definice</h2>
+<p>„Aplikace“ znamená jakoukoli mobilní hru nebo software vydaný pod značkou JellyDeer. „Uživatel“ znamená jakoukoli osobu používající aplikaci. „Digitální obsah“ znamená odemykatelný obsah, herní prvky nebo další funkce poskytované prostřednictvím aplikace.</p>
+</div>
 
-      <div class="section">
-        <h2>🎮 Používání aplikace</h2>
-        <p>
-          Tato aplikace je určena pro děti a rodiny.
-        </p>
+<div class="section">
+<h2>3. Licence k používání</h2>
+<p>Uživatel získává omezenou, nevýhradní, nepřenosnou a odvolatelnou licenci k osobnímu a nekomerčnímu používání aplikace. Veškerá práva, která nejsou výslovně udělena, zůstávají vyhrazena provozovateli.</p>
+</div>
 
-        <p>
-          Používáním aplikace souhlasíte s těmito podmínkami používání.
-        </p>
-      </div>
+<div class="section">
+<h2>4. Povolené použití</h2>
+<ul>
+<li>osobní a nekomerční používání,</li>
+<li>hraní hry v souladu s jejím účelem,</li>
+<li>instalace na zařízení vlastněná nebo oprávněně používaná uživatelem.</li>
+</ul>
+</div>
 
-      <div class="section">
-        <h2>🧸 Obsah aplikace</h2>
-        <p>
-          Aplikace obsahuje vzdělávací a zábavný obsah určený pro běžné osobní používání.
-        </p>
+<div class="section">
+<h2>5. Zakázané jednání</h2>
+<ul>
+<li>zpětné inženýrství aplikace,</li>
+<li>dekompilace nebo úpravy zdrojového kódu,</li>
+<li>obcházení bezpečnostních mechanismů,</li>
+<li>vytváření odvozených děl bez souhlasu provozovatele,</li>
+<li>komerční využití aplikace bez písemného souhlasu.</li>
+</ul>
+</div>
 
-        <p>
-          Není dovoleno kopírovat, upravovat nebo distribuovat obsah aplikace bez souhlasu vývojáře.
-        </p>
-      </div>
+<div class="section">
+<h2>6. Duševní vlastnictví</h2>
+<p>Veškerý obsah aplikace včetně grafiky, hudby, zvuků, herních mechanismů, ochranných známek, textů a dalších prvků je chráněn právními předpisy o duševním vlastnictví. Veškerá práva náleží provozovateli nebo příslušným držitelům práv.</p>
+</div>
 
-      <div class="section">
-        <h2>💳 Nákupy v aplikaci</h2>
-        <p>
-          Aplikace může obsahovat jednorázové dobrovolné nákupy prostřednictvím služby Google Play.
-        </p>
+<div class="section">
+<h2>7. Nákupy v aplikaci</h2>
+<p>Aplikace může nabízet dobrovolné jednorázové nákupy digitálního obsahu prostřednictvím služby Google Play Billing.</p>
+<p>Veškeré platby jsou zpracovávány společností Google. Provozovatel není stranou platební transakce a nemá přístup k platebním údajům uživatele.</p>
+</div>
 
-        <p>
-          Veškeré platby zpracovává společnost Google.
-        </p>
+<div class="section">
+<h2>8. Digitální obsah</h2>
+<p>Zakoupený digitální obsah představuje licenci k používání příslušného obsahu v rámci aplikace. Nákup nepředstavuje převod vlastnického práva k digitálnímu obsahu.</p>
+</div>
 
-        <p>
-          Před provedením nákupu může být vyžadováno rodičovské ověření.
-        </p>
-      </div>
+<div class="section">
+<h2>9. Dostupnost služby</h2>
+<p>Provozovatel se snaží zajistit dostupnost aplikace, avšak nezaručuje nepřetržitý provoz. Aplikace může být dočasně nedostupná z důvodu údržby, aktualizací nebo technických problémů.</p>
+</div>
 
-      <div class="section">
-        <h2>🔄 Dostupnost a změny</h2>
-        <p>
-          Vývojář si vyhrazuje právo aplikaci kdykoliv aktualizovat, upravit nebo ukončit její podporu.
-        </p>
+<div class="section">
+<h2>10. Aktualizace</h2>
+<p>Provozovatel si vyhrazuje právo aplikaci kdykoliv aktualizovat, měnit, rozšiřovat nebo omezovat její funkce bez předchozího upozornění.</p>
+</div>
 
-        <p>
-          Některé funkce aplikace se mohou v budoucnu změnit.
-        </p>
-      </div>
+<div class="section">
+<h2>11. Ukončení používání</h2>
+<p>Provozovatel si vyhrazuje právo omezit nebo ukončit přístup k aplikaci v případě porušení těchto podmínek nebo právních předpisů.</p>
+</div>
 
-      <div class="section">
-        <h2>⚠️ Omezení odpovědnosti</h2>
-        <p>
-          Aplikace je poskytována „tak jak je“ bez jakýchkoliv záruk.
-        </p>
+<div class="section">
+<h2>12. Omezení odpovědnosti</h2>
+<p>V maximálním rozsahu povoleném právními předpisy je aplikace poskytována „tak jak je“ a „dle dostupnosti“ bez jakýchkoliv výslovných nebo implicitních záruk.</p>
+<p>Provozovatel nenese odpovědnost za nepřímé, následné nebo náhodné škody, ztrátu dat, ztrátu zisku, ztrátu obchodních příležitostí ani za škody vzniklé v důsledku používání nebo nemožnosti používat aplikaci.</p>
+</div>
 
-        <p>
-          Vývojář nenese odpovědnost za případné technické problémy, nekompatibilitu zařízení nebo dočasnou nedostupnost aplikace.
-        </p>
-      </div>
+<div class="section">
+<h2>13. Služby třetích stran</h2>
+<p>Aplikace může využívat služby třetích stran, zejména Google Play Services a Google Play Billing. Tyto služby se řídí vlastními podmínkami a zásadami poskytovatelů.</p>
+</div>
 
-      <div class="section">
-        <h2>🔒 Ochrana soukromí</h2>
-        <p>
-          Informace o ochraně osobních údajů naleznete v dokumentu Zásady ochrany osobních údajů.
-        </p>
-      </div>
+<div class="section">
+<h2>14. Ochrana dětí</h2>
+<p>Aplikace je navržena s ohledem na děti a rodiny. Rodiče a zákonní zástupci nesou odpovědnost za dohled nad používáním aplikace nezletilými osobami.</p>
+</div>
 
-      <div class="notice">
-        <h2>📧 Kontakt</h2>
-        <p>
-          V případě dotazů nás můžete kontaktovat na e-mailové adrese:
-        </p>
+<div class="section">
+<h2>15. Rozhodné právo</h2>
+<p>Tyto podmínky se řídí právním řádem České republiky. Veškeré spory budou řešeny v souladu s příslušnými právními předpisy České republiky a Evropské unie.</p>
+</div>
 
-        <p>
-          <strong>jellydeer@seznam.cz</strong>
-        </p>
-      </div>
+<div class="section">
+<h2>16. Oddělitelnost ustanovení</h2>
+<p>Pokud bude některé ustanovení těchto podmínek shledáno neplatným nebo nevymahatelným, nebude tím dotčena platnost ostatních ustanovení.</p>
+</div>
 
-      <div class="footer">
-        
-      </div>
+<div class="section">
+<h2>17. Změny podmínek</h2>
+<p>Provozovatel si vyhrazuje právo tyto podmínky kdykoliv změnit. Aktualizované znění bude zveřejněno na této stránce.</p>
+</div>
 
-    </div>
-  </div>
+<div class="contact">
+<h2>Kontakt</h2>
+<p>Dotazy týkající se těchto podmínek můžete zasílat na:</p>
+<div class="email">jellydeer@seznam.cz</div>
+</div>
 
+</div></div>
 </body>
 </html>
+
